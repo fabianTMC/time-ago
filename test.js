@@ -5,7 +5,10 @@ var ta = (typeof module !== 'undefined' && module.exports) ?
 
 
 console.log(
-  ta.ago(new Date() - 1000), ta.ago(new Date() - 1000) === '1 second ago',
+  ta.ago(new Date() - 1000), ta.ago(new Date() - 1000) === 'Just now',
+  ta.ago(new Date() - (59*1000)), ta.ago(new Date() - (59*1000)) === 'Just now',
+  ta.ago(new Date() - (60*1000)), ta.ago(new Date() - (60*1000)) === '1 minute ago',
+  ta.ago(new Date() - (61*1000)), ta.ago(new Date() - (61*1000)) === '1 minute ago',
   ta.ago(new Date() - 60000 * 180), ta.ago(new Date() - 60000 * 180) === '3 hours ago',
   new Date(1), ta.ago(new Date(1)), ta.ago(new Date(1)) === '45 years ago'
 );

@@ -20,11 +20,16 @@ var timeago = function() {
       },
       ts = new Date().getTime() - new Date(nd).getTime(),
       ii;
-    for (var i in o) {
-      if (r(ts) < o[i]) return pl(ii || 'm', r(ts / (o[ii] || 1)))
-      ii = i;
-    }
-    return pl(i, r(ts / o[i]));
+
+      if(ts < o.minute) {
+        return "Just now";
+      } else {
+        for (var i in o) {
+          if (r(ts) < o[i]) return pl(ii || 'm', r(ts / (o[ii] || 1)))
+          ii = i;
+        }
+        return pl(i, r(ts / o[i]));  
+      }
   }
 
   obj.today = function() {
