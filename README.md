@@ -3,6 +3,8 @@ timeago
 
 Simple timeago function takes same params as 'new Date(...)'
 
+This version does not show the time in seconds if the timestamp is less than a minute ago. It simply says _Just now_
+
 ````
 var ta = require('./time-ago.js')();  // node.js
 var ta = timeago();					// browser
@@ -10,8 +12,8 @@ var ta = timeago();					// browser
 
 ###ta.ago(...)
 ````
-ta.ago(new Date()-1000);  =>  "1 second ago"
-ta.ago(new Date()-2000);  =>  "2 seconds ago"
+ta.ago(new Date()-1000);  =>  "Just now"
+ta.ago(new Date()-2000);  =>  "Just now"
 
 ta.ago(1);  =>  "44 years ago"
 
